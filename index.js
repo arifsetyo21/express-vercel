@@ -1,9 +1,12 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
 const product = require("./api/product");
 const proxy = require("./api/proxy");
 
 app.use(express.json({ extended: false }));
+app.use(cors());
+app.options("*", cors());
 
 app.use("/api/product", product);
 app.use("/api/proxy", proxy);
