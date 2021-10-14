@@ -2,8 +2,11 @@ const express = require("express");
 const axios = require("axios");
 const router = express.Router();
 const https = require("https");
+const cors = require("cors");
 
-router.get("/", async (req, res) => {
+app.use(cors());
+
+router.get("/", cors(), async (req, res) => {
   try {
     const url = req.query.url;
     const response = await axios
